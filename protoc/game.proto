@@ -1,0 +1,14 @@
+import "inc.proto";
+
+package gproto;
+
+message MSG_C2G_PING
+{
+	required int32 count = 1;
+}
+
+message MSG_G2C_PING
+{
+	required int32 count = 1;
+}
+

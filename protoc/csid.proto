@@ -1,0 +1,8 @@
+package gproto;
+
+enum MSGID
+{
+	CSID_C2G_PING	= 10000;
+	CSID_G2C_PING	= 10001;
+}
+
