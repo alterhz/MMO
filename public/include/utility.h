@@ -17,7 +17,7 @@ public:
 		if (m_pSingleTon)
 		{
 			delete m_pSingleTon;
-			m_pSingleTon = 0;
+			m_pSingleTon = nullptr;
 		}
 	}
 

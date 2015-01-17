@@ -13,6 +13,8 @@ set(PJ_LOGINSERVER_SRC
 	${CMAKE_SOURCE_DIR}/../public/src/main.cpp
 	${CMAKE_SOURCE_DIR}/../public/src/mainthread.h
 	${CMAKE_SOURCE_DIR}/../public/src/mainthread.cpp
+	${CMAKE_SOURCE_DIR}/../public/src/exitchildthread.h
+	${CMAKE_SOURCE_DIR}/../public/src/exitchildthread.cpp
 
 	${CMAKE_SOURCE_DIR}/loginserver/net/clientmanager.h
 	${CMAKE_SOURCE_DIR}/loginserver/net/clientmanager.cpp
@@ -21,7 +23,8 @@ set(PJ_LOGINSERVER_SRC
 	${CMAKE_SOURCE_DIR}/loginserver/net/worldconnector.h
 	${CMAKE_SOURCE_DIR}/loginserver/net/worldconnector.cpp
 
-	
+	${CMAKE_SOURCE_DIR}/loginserver/public/app.h
+	${CMAKE_SOURCE_DIR}/loginserver/public/app.cpp
 )
 
 foreach(src ${PJ_LOGINSERVER_SRC})
@@ -29,6 +32,7 @@ foreach(src ${PJ_LOGINSERVER_SRC})
 endforeach(src)
 
 source_group("Src"		REGULAR_EXPRESSION	../public/src)
+source_group("Public"	REGULAR_EXPRESSION	loginserver/public)
 source_group("Net"		REGULAR_EXPRESSION	loginserver/net)
 source_group("Protocol"		REGULAR_EXPRESSION	protocol)
 
@@ -41,6 +45,7 @@ include_directories(
 	${CMAKE_SOURCE_DIR}/../public/src
 	${CMAKE_SOURCE_DIR}/protocol
 	${CMAKE_SOURCE_DIR}/loginserver
+	${CMAKE_SOURCE_DIR}/loginserver/public
 	${CMAKE_SOURCE_DIR}/loginserver/net
 )
 

@@ -54,7 +54,7 @@ _run:
 	}
 
 	// É¾³ý×Ô¼º
-	delete this;
+	CMainThread::delMe();
 
 	return true;
 }

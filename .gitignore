@@ -1,5 +1,7 @@
 #windows
 build/
+/3rd
+/public/lib/
 
 
 

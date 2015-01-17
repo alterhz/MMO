@@ -11,6 +11,7 @@
 #include "lanworldsocket.h"
 
 #include "common/thread.h"
+#include "loginc.h"
 
 int main(int argc, char *argv[])
 {
@@ -23,7 +24,7 @@ int main(int argc, char *argv[])
 
 	for (int i=0; i<10000; ++i)
 	{
-		NS_LIB::Sleep(1);
+		NSLIB::Sleep(1);
 		CLanWorldSocket *pWorld = new CLanWorldSocket(ios);
 		pWorld->Connect("192.168.17.106", 9005);
 	}

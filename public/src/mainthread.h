@@ -7,10 +7,12 @@
 #define _MAINTHREAD_H_
 
 #include "common/thread.h"
+#include "utility.h"
 
 class CClientManager;
+class CExitChildThread;
 
-class CMainThread : public NSLIB::IThread
+class CMainThread : public NSLIB::IThread, public Singleton<CMainThread>
 {
 public:
 	CMainThread();

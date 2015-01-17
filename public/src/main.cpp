@@ -10,11 +10,7 @@
 
 int main(int argc, char *argv[])
 {
-	CMainThread *pMainThead = new CMainThread();
-	if (pMainThead)
-	{
-		pMainThead->Start();
-	}
+	CMainThread::getMe().Start();
 
 	while (true)
 	{
@@ -23,7 +19,10 @@ int main(int argc, char *argv[])
 
 		if ("exit" == strIn)
 		{
-			pMainThead->Stop();
+			if (CMainThread::instance())
+			{
+				CMainThread::instance()->Stop();
+			}
 
 			PrintInConsole("等待主线程停止...");
 		}
