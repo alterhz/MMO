@@ -2,8 +2,10 @@
 
 #include "loginc.h"
 #include "common/file.h"
+#include "netmanager.h"
 
 CApp::CApp()
+	: m_pWork(nullptr)
 {
 }
 
@@ -35,6 +37,9 @@ void CApp::Release()
 {
 	PrintInConsole("app release");
 
+	// É¾³ý
+	CNetManager::delMe();
+
 	// ×îºóÍ£Ö¹log
 	if (G_pLog)
 	{
@@ -55,7 +60,7 @@ bool CApp::InitLog()
 	}
 
 	std::string strPath = NSLIB::GetExeRootPath();
-	strPath += "\\loginserver.log";
+	strPath += "\\worldserver.log";
 	G_pLog->SetLogFilePath(strPath.c_str());
 
 	// Æô¶¯log
@@ -69,6 +74,33 @@ bool CApp::InitRes()
 
 bool CApp::InitNet()
 {
+	CNetManager::getMe().InitNetManager(m_ios);
+
 	return true;
+}
+
+void CApp::Run()
+{
+	m_pWork = new boost::asio::io_service::work(m_ios);
+
+_run:
+	try
+	{
+		m_ios.run();
+	}
+	catch (boost::system::error_code &e)
+	{
+		LogError(e.message());
+		goto _run;
+	}
+}
+
+void CApp::Stop()
+{
+	// Í£Ö¹ÍøÂç¼àÌý
+	CNetManager::getMe().StopNetManager();
+
+	delete m_pWork;
+	m_pWork = nullptr;
 }
 

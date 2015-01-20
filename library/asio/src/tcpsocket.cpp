@@ -64,7 +64,7 @@ bool ITcpSocket::OnRecv(const boost::system::error_code& ec, size_t nByteTransfe
 			|| ec.value() == boost::asio::error::eof
 			|| ec.value() == boost::asio::error::bad_descriptor)
 		{
-			LogError(ec.message());
+			LogDebug(ec.message());
 		}
 		else
 		{
@@ -141,7 +141,7 @@ bool ITcpSocket::DoSend(const char *pBuffer, int nLength)
 
 	if (!m_pRingBuffer->Write(szData, sizeof(unsigned short) + nLength))
 	{
-		LogError("·¢ËÍ»º³åÇøÂú£¬¶ªÆúÏûÏ¢°ü.");
+		LogWarn("·¢ËÍ»º³åÇøÂú£¬¶ªÆúÏûÏ¢°ü.");
 		return false;
 	}
 

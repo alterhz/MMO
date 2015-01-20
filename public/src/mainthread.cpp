@@ -7,15 +7,12 @@
 #include "exitchildthread.h"
 
 CMainThread::CMainThread()
-	: m_pWork(nullptr)
-	, m_pExitChildThread(nullptr)
+	: m_pExitChildThread(nullptr)
 {
 }
 
 CMainThread::~CMainThread()
 {
-	delete m_pWork;
-	m_pWork = nullptr;
 }
 
 bool CMainThread::OnThreadRun()
@@ -30,23 +27,11 @@ bool CMainThread::OnThreadRun()
 
 	LogInfo("thread begin...");
 
-	m_pWork = new boost::asio::io_service::work(m_ios);
-
-_run:
-	try
-	{
-		m_ios.run();
-	}
-	catch (boost::system::error_code &e)
-	{
-		LogError(e.message());
-		goto _run;
-	}
+	CApp::getMe().Run();
 
 	LogInfo("thread finished.");
 
 	CApp::getMe().Release();
-
 
 	if (m_pExitChildThread)
 	{
@@ -74,7 +59,6 @@ void CMainThread::Stop()
 		m_pExitChildThread->Start();
 	}
 
-	delete m_pWork;
-	m_pWork = nullptr;
+	CApp::getMe().Stop();
 }
 

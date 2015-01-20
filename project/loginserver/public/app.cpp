@@ -2,8 +2,10 @@
 
 #include "loginc.h"
 #include "common/file.h"
+#include "worldconnector.h"
 
 CApp::CApp()
+	: m_pWork(nullptr)
 {
 }
 
@@ -69,6 +71,42 @@ bool CApp::InitRes()
 
 bool CApp::InitNet()
 {
+	//CNetManager::getMe().InitNetManager(m_ios);
+
+	// Á¬½ÓWorldServer
+	//CWorldConnector::getMe().Connect("127.0.0.1", 8000);
+
+	CWorldConnector * pNewWorldConnector = new CWorldConnector(m_ios);
+	if (pNewWorldConnector)
+	{
+		pNewWorldConnector->Connect("127.0.0.1", 8000);
+	}
+
 	return true;
+}
+
+void CApp::Run()
+{
+	m_pWork = new boost::asio::io_service::work(m_ios);
+
+_run:
+	try
+	{
+		m_ios.run();
+	}
+	catch (boost::system::error_code &e)
+	{
+		LogError(e.message());
+		goto _run;
+	}
+}
+
+void CApp::Stop()
+{
+	// Í£Ö¹ÍøÂç¼àÌý
+	//CNetManager::getMe().StopNetManager();
+
+	delete m_pWork;
+	m_pWork = nullptr;
 }
 

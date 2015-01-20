@@ -20,8 +20,8 @@ set(PJ_WORLDSERVER_SRC
 	${CMAKE_SOURCE_DIR}/worldserver/net/clientacceptor.cpp
 	${CMAKE_SOURCE_DIR}/worldserver/net/clientsocket.h
 	${CMAKE_SOURCE_DIR}/worldserver/net/clientsocket.cpp
-	${CMAKE_SOURCE_DIR}/worldserver/net/acceptormanager.h
-	${CMAKE_SOURCE_DIR}/worldserver/net/acceptormanager.cpp
+	${CMAKE_SOURCE_DIR}/worldserver/net/netmanager.h
+	${CMAKE_SOURCE_DIR}/worldserver/net/netmanager.cpp
 	${CMAKE_SOURCE_DIR}/worldserver/net/loginclient.h
 	${CMAKE_SOURCE_DIR}/worldserver/net/loginclient.cpp
 	${CMAKE_SOURCE_DIR}/worldserver/net/loginclientmanager.h

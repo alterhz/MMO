@@ -45,4 +45,19 @@ private:
 };
 template <typename T> T* Singleton<T>::m_pSingleTon = NULL;
 
+
+// ½Ó¿Ú
+class IAppInterface
+{
+public:
+	virtual ~IAppInterface() {}
+
+public:
+	virtual bool Init() = 0;
+	virtual void Release() = 0;
+	virtual void Run() = 0;
+	virtual void Stop() = 0;
+};
+
+
 #endif

@@ -9,7 +9,6 @@
 #include "common/thread.h"
 #include "utility.h"
 
-class CClientManager;
 class CExitChildThread;
 
 class CMainThread : public NSLIB::IThread, public Singleton<CMainThread>
@@ -22,11 +21,9 @@ public:
 
 protected:
 	virtual bool OnThreadRun();
-	void OnRelease();
 
 private:
-	IOS m_ios;
-	boost::asio::io_service::work *m_pWork;
+	
 	CExitChildThread *m_pExitChildThread;
 };
 

@@ -39,8 +39,6 @@ bool ITcpConnector::ReConnect()
 	m_socket.async_connect(epRemote, 
 		bind(&ITcpConnector::OnConnect, this, boost::asio::placeholders::error));
 
-	LogError("重连服务器");
-
 	return true;
 }
 
