@@ -9,12 +9,15 @@
 
 #include "asioinc.h"
 #include "utility.h"
+#include "protoinc.h"
 
 class CWorldConnector : public ITcpConnector
 {
 public:
 	CWorldConnector(IOS &ios);
 	~CWorldConnector() {}
+
+	bool Send(unsigned short wMsgId, google::protobuf::Message *pMessage);
 
 public:
 	virtual void OnEstablish();

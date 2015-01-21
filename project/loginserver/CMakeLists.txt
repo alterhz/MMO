@@ -2,14 +2,6 @@ cmake_minimum_required (VERSION 2.8)
 
 #src
 set(PJ_LOGINSERVER_SRC
-	${CMAKE_SOURCE_DIR}/protocol/inc.pb.h
-	${CMAKE_SOURCE_DIR}/protocol/inc.pb.cc
-	${CMAKE_SOURCE_DIR}/protocol/csid.pb.h
-	${CMAKE_SOURCE_DIR}/protocol/csid.pb.cc
-	${CMAKE_SOURCE_DIR}/protocol/game.pb.h
-	${CMAKE_SOURCE_DIR}/protocol/game.pb.cc
-	${CMAKE_SOURCE_DIR}/protocol/protoinc.h
-
 	${CMAKE_SOURCE_DIR}/../public/src/main.cpp
 	${CMAKE_SOURCE_DIR}/../public/src/mainthread.h
 	${CMAKE_SOURCE_DIR}/../public/src/mainthread.cpp
@@ -53,7 +45,7 @@ include_directories(
 add_executable(LoginServer ${PJ_LOGINSERVER_SRC})
 
 if(WIN32)
-	target_link_libraries(LoginServer libprotobuf CommonLib AsioLib)
+	target_link_libraries(LoginServer libprotobuf ProtocolLib CommonLib AsioLib)
 	set_target_properties(LoginServer
 		PROPERTIES
 		COMPILE_FLAGS "/wd4819 /wd4996 /ZI /Od /Ob0" LINK_FLAGS "/DEBUG"

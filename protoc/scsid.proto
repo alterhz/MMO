@@ -1,0 +1,7 @@
+package gproto.s;
+
+enum MSGID
+{
+	CSID_L2W_HEART = 1000;
+}
+

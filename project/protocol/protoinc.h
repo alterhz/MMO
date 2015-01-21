@@ -1,3 +1,5 @@
 #include "inc.pb.h"
 #include "csid.pb.h"
-#include "game.pb.h"
+#include "msg.pb.h"
+#include "scsid.pb.h"
+#include "smsg.pb.h"

@@ -124,8 +124,9 @@ bool ITcpSocket::OnRecv(const boost::system::error_code& ec, size_t nByteTransfe
 	{
 		// 解析了消息包，但还剩余数据
 		memmove(m_szRecvBuffer, m_szRecvBuffer + nReadLength, (m_nRecvLength - nReadLength));
-		m_nRecvLength = nLeaftLength;
 	}
+
+	m_nRecvLength = nLeaftLength;
 
 	DoRecv();
 

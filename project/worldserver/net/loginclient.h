@@ -7,12 +7,15 @@
 #define _LOGINCLIENT_H_
 
 #include "asioinc.h"
+#include "protoinc.h"
 
 class CLoginClient : public ITcpSocket
 {
 public:
 	CLoginClient() {}
 	~CLoginClient() {}
+
+	bool Send(unsigned short wMsgId, google::protobuf::Message *pMessage);
 
 protected:
 	virtual void OnEstablish();
