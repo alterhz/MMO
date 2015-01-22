@@ -35,11 +35,15 @@ void protobuf_ShutdownFile_csid_2eproto();
 
 enum MSGID {
   CSID_C2G_PING = 10000,
-  CSID_G2C_PING = 10001
+  CSID_G2C_PING = 10001,
+  CSID_C2G_AccountLogin = 10010,
+  CSID_G2C_AccountLogin = 10011,
+  CSID_C2G_GetGateInfo = 10020,
+  CSID_G2C_GetGateInfo = 10021
 };
 bool MSGID_IsValid(int value);
 const MSGID MSGID_MIN = CSID_C2G_PING;
-const MSGID MSGID_MAX = CSID_G2C_PING;
+const MSGID MSGID_MAX = CSID_G2C_GetGateInfo;
 const int MSGID_ARRAYSIZE = MSGID_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* MSGID_descriptor();

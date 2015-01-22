@@ -58,8 +58,11 @@ void protobuf_AddDesc_csid_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\ncsid.proto\022\006gproto*/\n\005MSGID\022\022\n\rCSID_C2"
-    "G_PING\020\220N\022\022\n\rCSID_G2C_PING\020\221N", 69);
+    "\n\ncsid.proto\022\006gproto*\235\001\n\005MSGID\022\022\n\rCSID_C"
+    "2G_PING\020\220N\022\022\n\rCSID_G2C_PING\020\221N\022\032\n\025CSID_C"
+    "2G_AccountLogin\020\232N\022\032\n\025CSID_G2C_AccountLo"
+    "gin\020\233N\022\031\n\024CSID_C2G_GetGateInfo\020\244N\022\031\n\024CSI"
+    "D_G2C_GetGateInfo\020\245N", 180);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "csid.proto", &protobuf_RegisterTypes);
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_csid_2eproto);
@@ -79,6 +82,10 @@ bool MSGID_IsValid(int value) {
   switch(value) {
     case 10000:
     case 10001:
+    case 10010:
+    case 10011:
+    case 10020:
+    case 10021:
       return true;
     default:
       return false;

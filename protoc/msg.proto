@@ -12,3 +12,29 @@ message MSG_G2C_PING
 	required int32 count = 1;
 }
 
+message MSG_C2G_AccountLogin
+{
+	required string account = 1;
+}
+
+message MSG_G2C_AccountLogin
+{
+	enum EResultType
+	{
+		OK = 1;
+		Fail = 2;
+	}
+	required EResultType result = 1;
+}
+
+message MSG_C2G_GetGateInfo
+{
+}
+
+message MSG_G2C_GetGateInfo
+{
+	required string gateip = 1;
+	required int32 port = 2;
+	required int32 loginkey = 3;
+}
+

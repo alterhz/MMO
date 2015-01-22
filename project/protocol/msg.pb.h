@@ -23,6 +23,7 @@
 #include <google/protobuf/message.h>
 #include <google/protobuf/repeated_field.h>
 #include <google/protobuf/extension_set.h>
+#include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
 #include "inc.pb.h"
 // @@protoc_insertion_point(includes)
@@ -36,7 +37,30 @@ void protobuf_ShutdownFile_msg_2eproto();
 
 class MSG_C2G_PING;
 class MSG_G2C_PING;
+class MSG_C2G_AccountLogin;
+class MSG_G2C_AccountLogin;
+class MSG_C2G_GetGateInfo;
+class MSG_G2C_GetGateInfo;
 
+enum MSG_G2C_AccountLogin_EResultType {
+  MSG_G2C_AccountLogin_EResultType_OK = 1,
+  MSG_G2C_AccountLogin_EResultType_Fail = 2
+};
+bool MSG_G2C_AccountLogin_EResultType_IsValid(int value);
+const MSG_G2C_AccountLogin_EResultType MSG_G2C_AccountLogin_EResultType_EResultType_MIN = MSG_G2C_AccountLogin_EResultType_OK;
+const MSG_G2C_AccountLogin_EResultType MSG_G2C_AccountLogin_EResultType_EResultType_MAX = MSG_G2C_AccountLogin_EResultType_Fail;
+const int MSG_G2C_AccountLogin_EResultType_EResultType_ARRAYSIZE = MSG_G2C_AccountLogin_EResultType_EResultType_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* MSG_G2C_AccountLogin_EResultType_descriptor();
+inline const ::std::string& MSG_G2C_AccountLogin_EResultType_Name(MSG_G2C_AccountLogin_EResultType value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    MSG_G2C_AccountLogin_EResultType_descriptor(), value);
+}
+inline bool MSG_G2C_AccountLogin_EResultType_Parse(
+    const ::std::string& name, MSG_G2C_AccountLogin_EResultType* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<MSG_G2C_AccountLogin_EResultType>(
+    MSG_G2C_AccountLogin_EResultType_descriptor(), name, value);
+}
 // ===================================================================
 
 class MSG_C2G_PING : public ::google::protobuf::Message {
@@ -201,6 +225,378 @@ class MSG_G2C_PING : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static MSG_G2C_PING* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class MSG_C2G_AccountLogin : public ::google::protobuf::Message {
+ public:
+  MSG_C2G_AccountLogin();
+  virtual ~MSG_C2G_AccountLogin();
+
+  MSG_C2G_AccountLogin(const MSG_C2G_AccountLogin& from);
+
+  inline MSG_C2G_AccountLogin& operator=(const MSG_C2G_AccountLogin& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MSG_C2G_AccountLogin& default_instance();
+
+  void Swap(MSG_C2G_AccountLogin* other);
+
+  // implements Message ----------------------------------------------
+
+  MSG_C2G_AccountLogin* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MSG_C2G_AccountLogin& from);
+  void MergeFrom(const MSG_C2G_AccountLogin& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required string account = 1;
+  inline bool has_account() const;
+  inline void clear_account();
+  static const int kAccountFieldNumber = 1;
+  inline const ::std::string& account() const;
+  inline void set_account(const ::std::string& value);
+  inline void set_account(const char* value);
+  inline void set_account(const char* value, size_t size);
+  inline ::std::string* mutable_account();
+  inline ::std::string* release_account();
+  inline void set_allocated_account(::std::string* account);
+
+  // @@protoc_insertion_point(class_scope:gproto.MSG_C2G_AccountLogin)
+ private:
+  inline void set_has_account();
+  inline void clear_has_account();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::std::string* account_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_msg_2eproto();
+  friend void protobuf_AssignDesc_msg_2eproto();
+  friend void protobuf_ShutdownFile_msg_2eproto();
+
+  void InitAsDefaultInstance();
+  static MSG_C2G_AccountLogin* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class MSG_G2C_AccountLogin : public ::google::protobuf::Message {
+ public:
+  MSG_G2C_AccountLogin();
+  virtual ~MSG_G2C_AccountLogin();
+
+  MSG_G2C_AccountLogin(const MSG_G2C_AccountLogin& from);
+
+  inline MSG_G2C_AccountLogin& operator=(const MSG_G2C_AccountLogin& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MSG_G2C_AccountLogin& default_instance();
+
+  void Swap(MSG_G2C_AccountLogin* other);
+
+  // implements Message ----------------------------------------------
+
+  MSG_G2C_AccountLogin* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MSG_G2C_AccountLogin& from);
+  void MergeFrom(const MSG_G2C_AccountLogin& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  typedef MSG_G2C_AccountLogin_EResultType EResultType;
+  static const EResultType OK = MSG_G2C_AccountLogin_EResultType_OK;
+  static const EResultType Fail = MSG_G2C_AccountLogin_EResultType_Fail;
+  static inline bool EResultType_IsValid(int value) {
+    return MSG_G2C_AccountLogin_EResultType_IsValid(value);
+  }
+  static const EResultType EResultType_MIN =
+    MSG_G2C_AccountLogin_EResultType_EResultType_MIN;
+  static const EResultType EResultType_MAX =
+    MSG_G2C_AccountLogin_EResultType_EResultType_MAX;
+  static const int EResultType_ARRAYSIZE =
+    MSG_G2C_AccountLogin_EResultType_EResultType_ARRAYSIZE;
+  static inline const ::google::protobuf::EnumDescriptor*
+  EResultType_descriptor() {
+    return MSG_G2C_AccountLogin_EResultType_descriptor();
+  }
+  static inline const ::std::string& EResultType_Name(EResultType value) {
+    return MSG_G2C_AccountLogin_EResultType_Name(value);
+  }
+  static inline bool EResultType_Parse(const ::std::string& name,
+      EResultType* value) {
+    return MSG_G2C_AccountLogin_EResultType_Parse(name, value);
+  }
+
+  // accessors -------------------------------------------------------
+
+  // required .gproto.MSG_G2C_AccountLogin.EResultType result = 1;
+  inline bool has_result() const;
+  inline void clear_result();
+  static const int kResultFieldNumber = 1;
+  inline ::gproto::MSG_G2C_AccountLogin_EResultType result() const;
+  inline void set_result(::gproto::MSG_G2C_AccountLogin_EResultType value);
+
+  // @@protoc_insertion_point(class_scope:gproto.MSG_G2C_AccountLogin)
+ private:
+  inline void set_has_result();
+  inline void clear_has_result();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  int result_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_msg_2eproto();
+  friend void protobuf_AssignDesc_msg_2eproto();
+  friend void protobuf_ShutdownFile_msg_2eproto();
+
+  void InitAsDefaultInstance();
+  static MSG_G2C_AccountLogin* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class MSG_C2G_GetGateInfo : public ::google::protobuf::Message {
+ public:
+  MSG_C2G_GetGateInfo();
+  virtual ~MSG_C2G_GetGateInfo();
+
+  MSG_C2G_GetGateInfo(const MSG_C2G_GetGateInfo& from);
+
+  inline MSG_C2G_GetGateInfo& operator=(const MSG_C2G_GetGateInfo& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MSG_C2G_GetGateInfo& default_instance();
+
+  void Swap(MSG_C2G_GetGateInfo* other);
+
+  // implements Message ----------------------------------------------
+
+  MSG_C2G_GetGateInfo* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MSG_C2G_GetGateInfo& from);
+  void MergeFrom(const MSG_C2G_GetGateInfo& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:gproto.MSG_C2G_GetGateInfo)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[1];
+
+  friend void  protobuf_AddDesc_msg_2eproto();
+  friend void protobuf_AssignDesc_msg_2eproto();
+  friend void protobuf_ShutdownFile_msg_2eproto();
+
+  void InitAsDefaultInstance();
+  static MSG_C2G_GetGateInfo* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class MSG_G2C_GetGateInfo : public ::google::protobuf::Message {
+ public:
+  MSG_G2C_GetGateInfo();
+  virtual ~MSG_G2C_GetGateInfo();
+
+  MSG_G2C_GetGateInfo(const MSG_G2C_GetGateInfo& from);
+
+  inline MSG_G2C_GetGateInfo& operator=(const MSG_G2C_GetGateInfo& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MSG_G2C_GetGateInfo& default_instance();
+
+  void Swap(MSG_G2C_GetGateInfo* other);
+
+  // implements Message ----------------------------------------------
+
+  MSG_G2C_GetGateInfo* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MSG_G2C_GetGateInfo& from);
+  void MergeFrom(const MSG_G2C_GetGateInfo& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required string gateip = 1;
+  inline bool has_gateip() const;
+  inline void clear_gateip();
+  static const int kGateipFieldNumber = 1;
+  inline const ::std::string& gateip() const;
+  inline void set_gateip(const ::std::string& value);
+  inline void set_gateip(const char* value);
+  inline void set_gateip(const char* value, size_t size);
+  inline ::std::string* mutable_gateip();
+  inline ::std::string* release_gateip();
+  inline void set_allocated_gateip(::std::string* gateip);
+
+  // required int32 port = 2;
+  inline bool has_port() const;
+  inline void clear_port();
+  static const int kPortFieldNumber = 2;
+  inline ::google::protobuf::int32 port() const;
+  inline void set_port(::google::protobuf::int32 value);
+
+  // required int32 loginkey = 3;
+  inline bool has_loginkey() const;
+  inline void clear_loginkey();
+  static const int kLoginkeyFieldNumber = 3;
+  inline ::google::protobuf::int32 loginkey() const;
+  inline void set_loginkey(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:gproto.MSG_G2C_GetGateInfo)
+ private:
+  inline void set_has_gateip();
+  inline void clear_has_gateip();
+  inline void set_has_port();
+  inline void clear_has_port();
+  inline void set_has_loginkey();
+  inline void clear_has_loginkey();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::std::string* gateip_;
+  ::google::protobuf::int32 port_;
+  ::google::protobuf::int32 loginkey_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_msg_2eproto();
+  friend void protobuf_AssignDesc_msg_2eproto();
+  friend void protobuf_ShutdownFile_msg_2eproto();
+
+  void InitAsDefaultInstance();
+  static MSG_G2C_GetGateInfo* default_instance_;
+};
 // ===================================================================
 
 
@@ -256,6 +652,229 @@ inline void MSG_G2C_PING::set_count(::google::protobuf::int32 value) {
   count_ = value;
 }
 
+// -------------------------------------------------------------------
+
+// MSG_C2G_AccountLogin
+
+// required string account = 1;
+inline bool MSG_C2G_AccountLogin::has_account() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MSG_C2G_AccountLogin::set_has_account() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MSG_C2G_AccountLogin::clear_has_account() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MSG_C2G_AccountLogin::clear_account() {
+  if (account_ != &::google::protobuf::internal::kEmptyString) {
+    account_->clear();
+  }
+  clear_has_account();
+}
+inline const ::std::string& MSG_C2G_AccountLogin::account() const {
+  return *account_;
+}
+inline void MSG_C2G_AccountLogin::set_account(const ::std::string& value) {
+  set_has_account();
+  if (account_ == &::google::protobuf::internal::kEmptyString) {
+    account_ = new ::std::string;
+  }
+  account_->assign(value);
+}
+inline void MSG_C2G_AccountLogin::set_account(const char* value) {
+  set_has_account();
+  if (account_ == &::google::protobuf::internal::kEmptyString) {
+    account_ = new ::std::string;
+  }
+  account_->assign(value);
+}
+inline void MSG_C2G_AccountLogin::set_account(const char* value, size_t size) {
+  set_has_account();
+  if (account_ == &::google::protobuf::internal::kEmptyString) {
+    account_ = new ::std::string;
+  }
+  account_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* MSG_C2G_AccountLogin::mutable_account() {
+  set_has_account();
+  if (account_ == &::google::protobuf::internal::kEmptyString) {
+    account_ = new ::std::string;
+  }
+  return account_;
+}
+inline ::std::string* MSG_C2G_AccountLogin::release_account() {
+  clear_has_account();
+  if (account_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = account_;
+    account_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void MSG_C2G_AccountLogin::set_allocated_account(::std::string* account) {
+  if (account_ != &::google::protobuf::internal::kEmptyString) {
+    delete account_;
+  }
+  if (account) {
+    set_has_account();
+    account_ = account;
+  } else {
+    clear_has_account();
+    account_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// -------------------------------------------------------------------
+
+// MSG_G2C_AccountLogin
+
+// required .gproto.MSG_G2C_AccountLogin.EResultType result = 1;
+inline bool MSG_G2C_AccountLogin::has_result() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MSG_G2C_AccountLogin::set_has_result() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MSG_G2C_AccountLogin::clear_has_result() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MSG_G2C_AccountLogin::clear_result() {
+  result_ = 1;
+  clear_has_result();
+}
+inline ::gproto::MSG_G2C_AccountLogin_EResultType MSG_G2C_AccountLogin::result() const {
+  return static_cast< ::gproto::MSG_G2C_AccountLogin_EResultType >(result_);
+}
+inline void MSG_G2C_AccountLogin::set_result(::gproto::MSG_G2C_AccountLogin_EResultType value) {
+  assert(::gproto::MSG_G2C_AccountLogin_EResultType_IsValid(value));
+  set_has_result();
+  result_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// MSG_C2G_GetGateInfo
+
+// -------------------------------------------------------------------
+
+// MSG_G2C_GetGateInfo
+
+// required string gateip = 1;
+inline bool MSG_G2C_GetGateInfo::has_gateip() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MSG_G2C_GetGateInfo::set_has_gateip() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MSG_G2C_GetGateInfo::clear_has_gateip() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MSG_G2C_GetGateInfo::clear_gateip() {
+  if (gateip_ != &::google::protobuf::internal::kEmptyString) {
+    gateip_->clear();
+  }
+  clear_has_gateip();
+}
+inline const ::std::string& MSG_G2C_GetGateInfo::gateip() const {
+  return *gateip_;
+}
+inline void MSG_G2C_GetGateInfo::set_gateip(const ::std::string& value) {
+  set_has_gateip();
+  if (gateip_ == &::google::protobuf::internal::kEmptyString) {
+    gateip_ = new ::std::string;
+  }
+  gateip_->assign(value);
+}
+inline void MSG_G2C_GetGateInfo::set_gateip(const char* value) {
+  set_has_gateip();
+  if (gateip_ == &::google::protobuf::internal::kEmptyString) {
+    gateip_ = new ::std::string;
+  }
+  gateip_->assign(value);
+}
+inline void MSG_G2C_GetGateInfo::set_gateip(const char* value, size_t size) {
+  set_has_gateip();
+  if (gateip_ == &::google::protobuf::internal::kEmptyString) {
+    gateip_ = new ::std::string;
+  }
+  gateip_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* MSG_G2C_GetGateInfo::mutable_gateip() {
+  set_has_gateip();
+  if (gateip_ == &::google::protobuf::internal::kEmptyString) {
+    gateip_ = new ::std::string;
+  }
+  return gateip_;
+}
+inline ::std::string* MSG_G2C_GetGateInfo::release_gateip() {
+  clear_has_gateip();
+  if (gateip_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = gateip_;
+    gateip_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void MSG_G2C_GetGateInfo::set_allocated_gateip(::std::string* gateip) {
+  if (gateip_ != &::google::protobuf::internal::kEmptyString) {
+    delete gateip_;
+  }
+  if (gateip) {
+    set_has_gateip();
+    gateip_ = gateip;
+  } else {
+    clear_has_gateip();
+    gateip_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// required int32 port = 2;
+inline bool MSG_G2C_GetGateInfo::has_port() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void MSG_G2C_GetGateInfo::set_has_port() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void MSG_G2C_GetGateInfo::clear_has_port() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void MSG_G2C_GetGateInfo::clear_port() {
+  port_ = 0;
+  clear_has_port();
+}
+inline ::google::protobuf::int32 MSG_G2C_GetGateInfo::port() const {
+  return port_;
+}
+inline void MSG_G2C_GetGateInfo::set_port(::google::protobuf::int32 value) {
+  set_has_port();
+  port_ = value;
+}
+
+// required int32 loginkey = 3;
+inline bool MSG_G2C_GetGateInfo::has_loginkey() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void MSG_G2C_GetGateInfo::set_has_loginkey() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void MSG_G2C_GetGateInfo::clear_has_loginkey() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void MSG_G2C_GetGateInfo::clear_loginkey() {
+  loginkey_ = 0;
+  clear_has_loginkey();
+}
+inline ::google::protobuf::int32 MSG_G2C_GetGateInfo::loginkey() const {
+  return loginkey_;
+}
+inline void MSG_G2C_GetGateInfo::set_loginkey(::google::protobuf::int32 value) {
+  set_has_loginkey();
+  loginkey_ = value;
+}
+
 
 // @@protoc_insertion_point(namespace_scope)
 
@@ -265,6 +884,10 @@ inline void MSG_G2C_PING::set_count(::google::protobuf::int32 value) {
 namespace google {
 namespace protobuf {
 
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::gproto::MSG_G2C_AccountLogin_EResultType>() {
+  return ::gproto::MSG_G2C_AccountLogin_EResultType_descriptor();
+}
 
 }  // namespace google
 }  // namespace protobuf
