@@ -2,7 +2,7 @@
 
 #include "loginc.h"
 #include "common/file.h"
-#include "worldconnector.h"
+#include "netmanager.h"
 
 CApp::CApp()
 	: m_pWork(nullptr)
@@ -71,16 +71,7 @@ bool CApp::InitRes()
 
 bool CApp::InitNet()
 {
-	//CNetManager::getMe().InitNetManager(m_ios);
-
-	// Á¬½ÓWorldServer
-	//CWorldConnector::getMe().Connect("127.0.0.1", 8000);
-
-	CWorldConnector * pNewWorldConnector = new CWorldConnector(m_ios);
-	if (pNewWorldConnector)
-	{
-		pNewWorldConnector->Connect("127.0.0.1", 8000);
-	}
+	CNetManager::getMe().InitNet(&m_ios);
 
 	return true;
 }

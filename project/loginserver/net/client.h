@@ -8,16 +8,35 @@
 
 #include "asioinc.h"
 
+enum EClientStatus
+{
+	EStatus_NotLoginIn = 0,	//Î´µÇÂ½
+	EStatus_HaveLoginIn,	//ÒÑµÇÂ½
+};
+
 class CClient : public ITcpSocket
 {
 public:
 	CClient();
+	~CClient() {}
+
+	// ÇÐ»»×´Ì¬
+	void ChangeClientStatus(EClientStatus eClientStatus) { m_eClientStatus = eClientStatus; }
 
 protected:
 	virtual void OnEstablish();
 	virtual void OnError(int nErrorCode);
 	virtual bool OnRecvPacket(const char *pPacket, int nLength);
 	virtual void OnTerminate();
+
+private:
+	// Î´µÇÂ½µÄÂß¼­·Ö·¢
+	void OnNotLoginInLogicDispatch(unsigned short wMsgId, const void *pProtoData, int nProtoLength);
+	// ÒÑµÇÂ¼µÄÂß¼­·Ö·¢
+	void OnHaveLoginInLogicDispatch(unsigned short wMsgId, const void *pProtoData, int nProtoLength);
+
+private:
+	EClientStatus m_eClientStatus;
 };
 
 #endif

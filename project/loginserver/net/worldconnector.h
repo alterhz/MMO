@@ -17,6 +17,12 @@ public:
 	CWorldConnector(IOS &ios);
 	~CWorldConnector() {}
 
+public:
+	bool SendAccountLogin(const char *pAccount);
+
+	bool SendProtoData(unsigned short wMsgId, const void *pProtoData, int nProtoLength);
+	
+private:
 	bool Send(unsigned short wMsgId, google::protobuf::Message *pMessage);
 
 public:

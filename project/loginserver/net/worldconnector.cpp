@@ -83,9 +83,31 @@ bool CWorldConnector::Send( unsigned short wMsgId, google::protobuf::Message *pM
 		return false;
 	}
 
-	int nProtoLength = sizeof(unsigned short) + pMessage->ByteSize();
+	int nBufferLength = sizeof(unsigned short) + pMessage->ByteSize();
 
-	return DoSend(szBuffer, nProtoLength);
+	return DoSend(szBuffer, nBufferLength);
+}
+
+bool CWorldConnector::SendAccountLogin( const char *pAccount )
+{
+	gproto::MSG_C2G_AccountLogin msgAccountLogin;
+	msgAccountLogin.set_account(pAccount);
+
+	return Send(gproto::CSID_C2G_AccountLogin, &msgAccountLogin);
+}
+
+bool CWorldConnector::SendProtoData( unsigned short wMsgId, const void *pProtoData, int nProtoLength )
+{
+	char szBuffer[0x2000] = {0};
+	unsigned short *pMsgId = reinterpret_cast<unsigned short *>(szBuffer);
+	*pMsgId = wMsgId;
+
+	char *pProtoHeader = szBuffer + sizeof(unsigned short);
+
+	memcpy(pProtoHeader, pProtoData, nProtoLength);
+	int nBufferLength = sizeof(unsigned short) + nProtoLength;
+
+	return DoSend(szBuffer, nBufferLength);
 }
 
 

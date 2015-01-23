@@ -14,6 +14,8 @@ set(PJ_LOGINSERVER_SRC
 	${CMAKE_SOURCE_DIR}/loginserver/net/client.cpp
 	${CMAKE_SOURCE_DIR}/loginserver/net/worldconnector.h
 	${CMAKE_SOURCE_DIR}/loginserver/net/worldconnector.cpp
+	${CMAKE_SOURCE_DIR}/loginserver/net/netmanager.h
+	${CMAKE_SOURCE_DIR}/loginserver/net/netmanager.cpp
 
 	${CMAKE_SOURCE_DIR}/loginserver/public/app.h
 	${CMAKE_SOURCE_DIR}/loginserver/public/app.cpp
